@@ -5,14 +5,14 @@ load 'PAAD_ESCA_CHOL_Samplecategory3.mat';
 
 fea1 = PAAD_ESCA_CHOL_GE3;
 gnd1 = PAAD_ESCA_CHOL_Samplecategory3;
-fea1 = mapminmax(fea1,0,1);%πÈ“ªªØ
-%%—µ¡∑
+fea1 = mapminmax(fea1,0,1);
+
 p=30;
 %%
 
 % for d=1:p
 %     tic
-                 [fea, gnd, L_data, L_label]=data_all(fea1,gnd1);
+%                 [fea, gnd, L_data, L_label]=data_all(fea1,gnd1);
 %                 [A1 , B1]=return_after_GNMF(fea, L_data,gnd); 
 %                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
 %                 predict_label  =   predict(mdl,B1');
@@ -120,72 +120,72 @@ p=30;
 % result4(4,d+1)=4;
 % result4(4,d+2)=mean(result4(4,1:30));
 % result4(4,d+3)=var(result4(4,1:30));
-% for d=1:p
-%     tic
-%                 [fea, gnd, L_data, L_label]=data3(fea1,gnd1);
-%                 [A1 , B1]=return_after_SDGNMF(fea, L_data,gnd); 
-%                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
-%                 predict_label  =   predict(mdl,B1');
-%                 accuracy  =   length(find(predict_label == L_label))/length(L_label);
-%                 [recall, precision, Fmeasure]=Value_duo(L_label,predict_label);
-%                 result(5,d)=accuracy;
-%                 result2(5,d)=recall;
-%                 result3(5,d)=precision;
-%                 result4(5,d)=Fmeasure;
-%     toc
-% 
-% end
-% result(5,d+1)=5;
-% result(5,d+2)=mean(result(5,1:30));
-% result(5,d+3)=var(result(5,1:30));
-% result2(5,d+1)=5;
-% result2(5,d+2)=mean(result2(5,1:30));
-% result2(5,d+3)=var(result2(5,1:30));
-% result3(5,d+1)=5;
-% result3(5,d+2)=mean(result3(5,1:30));
-% result3(5,d+3)=var(result3(5,1:30));
-% result4(5,d+1)=5;
-% result4(5,d+2)=mean(result4(5,1:30));
-% result4(5,d+3)=var(result4(5,1:30));
-% %%
-% 
-% for d=1:p
-%     tic
-%                 [fea, gnd, L_data, L_label]=data3(fea1,gnd1);
-%                 [A1 , B1]=return_after_DNMF(fea, L_data,gnd); 
-%                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
-%                 predict_label  =   predict(mdl,B1');
-%                 accuracy  =   length(find(predict_label == L_label))/length(L_label);
-%                 [recall, precision, Fmeasure]=Value_duo(L_label,predict_label);
-%                 result(6,d)=accuracy;
-%                 result2(6,d)=recall;
-%                 result3(6,d)=precision;
-%                 result4(6,d)=Fmeasure;
-%      toc
-% end
-% result(6,d+1)=6;
-% result(6,d+2)=mean(result(6,1:30));
-% result(6,d+3)=var(result(6,1:30));
-% result2(6,d+1)=6;
-% result2(6,d+2)=mean(result2(6,1:30));
-% result2(6,d+3)=var(result2(6,1:30));
-% result3(6,d+1)=6;
-% result3(6,d+2)=mean(result3(6,1:30));
-% result3(6,d+3)=var(result3(6,1:30));
-% result4(6,d+1)=6;
-% result4(6,d+2)=mean(result4(6,1:30));
-% result4(6,d+3)=var(result4(6,1:30));
-% for d=1:1
-%     tic
-%                 [fea, gnd, L_data, L_label]=data3(fea1,gnd1);
-%                 [A1 , B1]=return_after_GDNMF(fea, L_data,gnd);
-%                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
-%           	    predict_label  =   predict(mdl,B1');
-%                 accuracy  =   length(find(predict_label == L_label))/length(L_label);
-%                 result(7,d)=accuracy;
-%     toc
-% end
-% result(7,d+1)=7;
+ for d=1:p
+     tic
+                 [fea, gnd, L_data, L_label]=data3(fea1,gnd1);
+                 [A1 , B1]=return_after_SDGNMF(fea, L_data,gnd); 
+                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
+                 predict_label  =   predict(mdl,B1');
+                 accuracy  =   length(find(predict_label == L_label))/length(L_label);
+                 [recall, precision, Fmeasure]=Value_duo(L_label,predict_label);
+                 result(5,d)=accuracy;
+                 result2(5,d)=recall;
+                 result3(5,d)=precision;
+                 result4(5,d)=Fmeasure;
+     toc
+ 
+ end
+ result(5,d+1)=5;
+ result(5,d+2)=mean(result(5,1:30));
+ result(5,d+3)=var(result(5,1:30));
+ result2(5,d+1)=5;
+ result2(5,d+2)=mean(result2(5,1:30));
+ result2(5,d+3)=var(result2(5,1:30));
+ result3(5,d+1)=5;
+ result3(5,d+2)=mean(result3(5,1:30));
+ result3(5,d+3)=var(result3(5,1:30));
+ result4(5,d+1)=5;
+ result4(5,d+2)=mean(result4(5,1:30));
+ result4(5,d+3)=var(result4(5,1:30));
+ %%
+ 
+ for d=1:p
+     tic
+                 [fea, gnd, L_data, L_label]=data3(fea1,gnd1);
+                 [A1 , B1]=return_after_DNMF(fea, L_data,gnd); 
+                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
+                 predict_label  =   predict(mdl,B1');
+                 accuracy  =   length(find(predict_label == L_label))/length(L_label);
+                 [recall, precision, Fmeasure]=Value_duo(L_label,predict_label);
+                 result(6,d)=accuracy;
+                 result2(6,d)=recall;
+                 result3(6,d)=precision;
+                 result4(6,d)=Fmeasure;
+      toc
+ end
+ result(6,d+1)=6;
+ result(6,d+2)=mean(result(6,1:30));
+ result(6,d+3)=var(result(6,1:30));
+ result2(6,d+1)=6;
+ result2(6,d+2)=mean(result2(6,1:30));
+ result2(6,d+3)=var(result2(6,1:30));
+ result3(6,d+1)=6;
+ result3(6,d+2)=mean(result3(6,1:30));
+ result3(6,d+3)=var(result3(6,1:30));
+ result4(6,d+1)=6;
+ result4(6,d+2)=mean(result4(6,1:30));
+ result4(6,d+3)=var(result4(6,1:30));
+ for d=1:1
+     tic
+                 [fea, gnd, L_data, L_label]=data3(fea1,gnd1);
+                 [A1 , B1]=return_after_GDNMF(fea, L_data,gnd);
+                 mdl = ClassificationKNN.fit(A1' ,gnd,'NumNeighbors',1);
+           	    predict_label  =   predict(mdl,B1');
+                 accuracy  =   length(find(predict_label == L_label))/length(L_label);
+                 result(7,d)=accuracy;
+     toc
+ end
+ result(7,d+1)=7;
 d=1;
 for d=1:p
     tic
