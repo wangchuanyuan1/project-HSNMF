@@ -1,11 +1,10 @@
 clear all
-addpath('E:\郝永静\yuanshizhenghe');
-addpath('C:\Users\WCY\Desktop\10.6晚找最优值');
+
 load('CO_ES_HN_PA_CH.mat')
 load('CO_ES_HN_PA_CHfeaturename.mat')
 load('CO_ES_HN_PA_CHSamplecategory.mat')
-fea = CO_ES_HN_PA_CH;   %样本x基因
-gnd = Samplecategory;  %样本x1
+fea = CO_ES_HN_PA_CH;   %鏍锋湰x鍩哄洜
+gnd = Samplecategory;  %鏍锋湰
 gene = PAAD_ESCA_CHOL_GE3_featurename ;
 % %%
 % [U1,V1] = refer_HNMF(fea,gnd);
